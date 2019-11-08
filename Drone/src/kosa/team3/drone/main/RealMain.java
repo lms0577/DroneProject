@@ -4,6 +4,7 @@ java -Djava.library.path=/usr/lib/jni:/home/pi/opencv/opencv-3.4.5/build/lib -cp
 
 package kosa.team3.drone.main;
 
+import kosa.team3.drone.device.Electromagnet;
 import kosa.team3.drone.network.NetworkConfig;
 import syk.drone.device.Camera;
 import syk.drone.device.FlightController;
@@ -35,6 +36,13 @@ public class RealMain {
                 networkConfig.mqttBrokerConnStr,
                 networkConfig.droneTopic +"/cam0/pub",
                 networkConfig.droneTopic +"/cam0/sub"
+        );
+
+        Electromagnet electromagnet = new Electromagnet();
+        electromagnet.mqttConnect(
+                networkConfig.mqttBrokerConnStr,
+                networkConfig.droneTopic +"/electromagnet/pub",
+                networkConfig.droneTopic+"/electromagnet/sub"
         );
     }
 }

@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import kosa.team3.gcs.network.Drone;
 import kosa.team3.gcs.network.NetworkConfig;
+import kosa.team3.gcs.service.service2.Service2;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -68,8 +69,12 @@ public class GcsMainController implements Initializable {
 	@FXML public Button btnSouth;
 	@FXML public Button btnEast;
 	@FXML public Button btnWest;
+	@FXML public Button btnService1;
+	@FXML public Button btnService2;
+	@FXML public Button btnService3;
 
 	public Drone drone;
+
 	//---------------------------------------------------------------------------------
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -100,6 +105,9 @@ public class GcsMainController implements Initializable {
 		btnSouth.setOnAction(btnSouthEventHandler);
 		btnEast.setOnAction(btnEastEventHandler);
 		btnWest.setOnAction(btnWestEventHandler);
+		btnService1.setOnAction(btnService1EventHandler);
+		btnService2.setOnAction(btnService2EventHandler);
+		btnService3.setOnAction(btnService3EventHandler);
 
 		drone = new Drone();
 
@@ -654,4 +662,27 @@ public class GcsMainController implements Initializable {
 			drone.flightController.sendFindControl(0, -1); //m/s
 		}
 	};
+	//---------------------------------------------------------------------------------
+	private EventHandler<ActionEvent> btnService1EventHandler = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent event) {
+
+		}
+	};
+	//---------------------------------------------------------------------------------
+	private EventHandler<ActionEvent> btnService2EventHandler = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent event) {
+			Service2 service2 = new Service2();
+			service2.show();
+		}
+	};
+	//---------------------------------------------------------------------------------
+	private EventHandler<ActionEvent> btnService3EventHandler = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent event) {
+
+		}
+	};
+
 }
