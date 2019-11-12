@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import kosa.team3.gcs.network.Drone;
 import kosa.team3.gcs.network.NetworkConfig;
+import kosa.team3.gcs.service.service1.Service1;
 import kosa.team3.gcs.service.service2.Service2;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -666,7 +667,8 @@ public class GcsMainController implements Initializable {
 	private EventHandler<ActionEvent> btnService1EventHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent event) {
-
+			Service1 service1 = new Service1();
+			service1.show();
 		}
 	};
 	//---------------------------------------------------------------------------------
