@@ -1,4 +1,4 @@
-package kosa.team3.gcs.service.service1;
+package kosa.team3.gcs.service.savePath;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,32 +8,27 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import kosa.team3.gcs.main.GcsMain;
 
-public class Service1 {
-    //Field
+public class SavePath {
     private Stage dialog;
 
-    //Constructor
-    public Service1() {
+    public SavePath() {
         try{
             dialog = new Stage(StageStyle.UTILITY);
             dialog.initModality(Modality.WINDOW_MODAL);
             dialog.initOwner(GcsMain.instance.primaryStage);
-            BorderPane borderPane = (BorderPane) FXMLLoader.load(getClass().getResource("Service1.fxml"));
+            BorderPane borderPane = (BorderPane) FXMLLoader.load(getClass().getResource("SavePath.fxml"));
             Scene scene = new Scene(borderPane);
-
             scene.getStylesheets().add(GcsMain.class.getResource("style_dark.css").toExternalForm());
             dialog.setScene(scene);
-            dialog.setTitle("드론 요청 현황");
+            dialog.setTitle("경로 저장");
 
-            dialog.setWidth(1000);
-            dialog.setHeight(800);
+            //dialog.setWidth(500);
+            //dialog.setHeight(500);
             dialog.setResizable(false);
         } catch (Exception e) {}
     }
 
-    //Method
     public void show() {
         dialog.show();
     }
-
 }

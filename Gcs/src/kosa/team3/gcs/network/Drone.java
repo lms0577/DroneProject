@@ -1,6 +1,7 @@
 package kosa.team3.gcs.network;
 
 import kosa.team3.gcs.device.Electromagnet;
+import kosa.team3.gcs.web.WebNetwork;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import syk.gcs.network.Camera;
@@ -14,12 +15,14 @@ public class Drone {
     public Camera camera0;
     public Camera camera1;
     public Electromagnet electromagnet;
+    public WebNetwork webNetwork;
     //------------------------------------------------------------------------------
     public Drone() {
         flightController = new FlightController();
         camera0 = new Camera();
         camera1 = new Camera();
         electromagnet = new Electromagnet();
+        webNetwork = new WebNetwork();
     }
     //------------------------------------------------------------------------------
     public void connect() {
@@ -51,6 +54,12 @@ public class Drone {
                         networkConfig.droneTopic + "/electromagnet/pub",
                         networkConfig.droneTopic + "/electromagnet/sub"
                 );
+
+                webNetwork.mqttConnect(
+                        networkConfig.mqttBrokerConnStr,
+                        networkConfig.droneTopic + "/web/pub",
+                        networkConfig.droneTopic + "/web/sub"
+                );
             }
         };
         thread.start();
@@ -64,6 +73,7 @@ public class Drone {
                 camera0.mqttDisconnect();
                 camera1.mqttDisconnect();
                 electromagnet.mqttDisconnect();
+                webNetwork.mqttDisconnect();
             }
         };
         thread.start();

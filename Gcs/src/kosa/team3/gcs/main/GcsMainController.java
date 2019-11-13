@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import kosa.team3.gcs.network.Drone;
 import kosa.team3.gcs.network.NetworkConfig;
+import kosa.team3.gcs.service.savePath.SavePath;
 import kosa.team3.gcs.service.service1.Service1;
 import kosa.team3.gcs.service.service2.Service2;
 import org.json.JSONArray;
@@ -73,6 +74,7 @@ public class GcsMainController implements Initializable {
 	@FXML public Button btnService1;
 	@FXML public Button btnService2;
 	@FXML public Button btnService3;
+	@FXML public Button btnSavePath;
 
 	public Drone drone;
 
@@ -109,6 +111,7 @@ public class GcsMainController implements Initializable {
 		btnService1.setOnAction(btnService1EventHandler);
 		btnService2.setOnAction(btnService2EventHandler);
 		btnService3.setOnAction(btnService3EventHandler);
+		btnSavePath.setOnAction(btnSavePathEventHandler);
 
 		drone = new Drone();
 
@@ -686,5 +689,18 @@ public class GcsMainController implements Initializable {
 
 		}
 	};
-
+	//---------------------------------------------------------------------------------
+	private EventHandler<ActionEvent> btnSavePathEventHandler = new EventHandler<ActionEvent>() {
+		@Override
+		public void handle(ActionEvent event) {
+			JSONArray jsonArray = flightMap.controller.getMissionItems();
+			if(jsonArray.length() < 2) {
+				AlertDialog.showOkButton("알림", "미션 아이템 수가 부족합니다.");
+			} else {
+				drone.webNetwork.setJsonArray(jsonArray);
+				SavePath savePath = new SavePath();
+				savePath.show();
+			}
+		}
+	};
 }
