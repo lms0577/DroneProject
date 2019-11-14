@@ -21,7 +21,8 @@ public class SavePathController implements Initializable {
     private static final Logger logger = LoggerFactory.getLogger(SavePathController.class);
     @FXML private Button btnSave;
     @FXML private Button btnCancel;
-    @FXML private ChoiceBox choiceBox;
+    @FXML private ChoiceBox choiceBox1;
+    @FXML private ChoiceBox choiceBox2;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -30,31 +31,63 @@ public class SavePathController implements Initializable {
     }
 
     private String vid;
+    private String vpathid;
     private EventHandler<ActionEvent> btnSaveEventHandler = new EventHandler<ActionEvent>() {
         @Override
         public void handle(ActionEvent event) {
-            String vname = choiceBox.getValue().toString();
+            String vname = choiceBox1.getValue().toString();
+            String vpath = choiceBox2.getValue().toString();
             if(vname.equals("관우 마을")) {
                 vid = "v001";
                 logger.info(vid);
                 JSONArray jsonArray = GcsMain.instance.controller.drone.webNetwork.getJsonArray();
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put(vid, jsonArray);
+                jsonObject.put("vid", vid);
+                jsonObject.put("path", jsonArray);
+                if(vpath.equals("마을 경로")) {
+                    vpathid = "sendPath";
+                    jsonObject.put("vpathid", vpathid);
+                } else {
+                    vpathid = "returnPath";
+                    jsonObject.put("vpathid", vpathid);
+                }
                 GcsMain.instance.controller.drone.webNetwork.mqttSendToWebPool(jsonObject);
+                Stage stage = (Stage) btnSave.getScene().getWindow();
+                stage.close();
             }else if(vname.equals("인성 마을")) {
                 vid = "v002";
                 logger.info(vid);
                 JSONArray jsonArray = GcsMain.instance.controller.drone.webNetwork.getJsonArray();
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put(vid, jsonArray);
+                jsonObject.put("vid", vid);
+                jsonObject.put("path", jsonArray);
+                if(vpath.equals("마을 경로")) {
+                    vpathid = "sendPath";
+                    jsonObject.put("vpathid", vpathid);
+                } else {
+                    vpathid = "returnPath";
+                    jsonObject.put("vpathid", vpathid);
+                }
                 GcsMain.instance.controller.drone.webNetwork.mqttSendToWebPool(jsonObject);
+                Stage stage = (Stage) btnSave.getScene().getWindow();
+                stage.close();
             } else {
                 vid = "v003";
                 logger.info(vid);
                 JSONArray jsonArray = GcsMain.instance.controller.drone.webNetwork.getJsonArray();
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put(vid, jsonArray);
+                jsonObject.put("vid", vid);
+                jsonObject.put("path", jsonArray);
+                if(vpath.equals("마을 경로")) {
+                    vpathid = "sendPath";
+                    jsonObject.put("vpathid", vpathid);
+                } else {
+                    vpathid = "returnPath";
+                    jsonObject.put("vpathid", vpathid);
+                }
                 GcsMain.instance.controller.drone.webNetwork.mqttSendToWebPool(jsonObject);
+                Stage stage = (Stage) btnSave.getScene().getWindow();
+                stage.close();
             }
         }
     };

@@ -18,6 +18,7 @@ import kosa.team3.gcs.network.NetworkConfig;
 import kosa.team3.gcs.service.savePath.SavePath;
 import kosa.team3.gcs.service.service1.Service1;
 import kosa.team3.gcs.service.service2.Service2;
+import kosa.team3.gcs.service.service3.Service3;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -686,7 +687,8 @@ public class GcsMainController implements Initializable {
 	private EventHandler<ActionEvent> btnService3EventHandler = new EventHandler<ActionEvent>() {
 		@Override
 		public void handle(ActionEvent event) {
-
+			Service3 service3 = new Service3();
+			service3.show();
 		}
 	};
 	//---------------------------------------------------------------------------------

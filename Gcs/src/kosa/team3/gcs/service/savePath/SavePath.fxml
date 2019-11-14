@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.collections.FXCollections?>
 
-<BorderPane styleClass="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kosa.team3.gcs.service.savePath.SavePathController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="pane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kosa.team3.gcs.service.savePath.SavePathController">
    <bottom>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0" BorderPane.alignment="CENTER">
          <children>
@@ -28,19 +28,8 @@
          </BorderPane.margin>
       </HBox>
    </bottom>
-   <center>
-      <ChoiceBox prefWidth="150.0" BorderPane.alignment="CENTER" value="관우 마을" fx:id="choiceBox">
-          <items>
-              <FXCollections fx:factory="observableArrayList">
-                  <String fx:value="관우 마을" />
-                  <String fx:value="인성 마을" />
-                  <String fx:value="소영 마을" />
-              </FXCollections>
-          </items>
-      </ChoiceBox>
-   </center>
    <top>
-      <Label alignment="CENTER" contentDisplay="CENTER" minHeight="80.0" prefWidth="150.0" text="Save Path" BorderPane.alignment="CENTER">
+      <Label alignment="CENTER" contentDisplay="CENTER" minHeight="80.0" prefWidth="150.0" text="경로 저장" BorderPane.alignment="CENTER">
          <font>
             <Font size="24.0" />
          </font>
@@ -49,4 +38,30 @@
          </BorderPane.margin>
       </Label>
    </top>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" BorderPane.alignment="CENTER">
+         <children>
+            <ChoiceBox fx:id="choiceBox1" prefWidth="150.0" value="관우 마을">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="관우 마을" />
+                        <String fx:value="인성 마을" />
+                        <String fx:value="소영 마을" />
+                    </FXCollections>
+                </items>
+            </ChoiceBox>
+            <ChoiceBox fx:id="choiceBox2" prefWidth="150.0" value="마을 경로">
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:value="마을 경로" />
+                     <String fx:value="복귀 경로" />
+                  </FXCollections>
+               </items>
+            </ChoiceBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </center>
 </BorderPane>

@@ -52,14 +52,10 @@ public class WebNetwork {
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
                 logger.info("실행");
                 byte[] bytes = mqttMessage.getPayload();
-                logger.info(bytes.toString());
                 String json = new String(bytes);
-                logger.info(json);
                 JSONObject jsonObject = new JSONObject(json);
-                logger.info(jsonObject.toString());
-                JSONArray test = jsonObject.getJSONArray("v001");
-                logger.info(test.toString());
-                GcsMain.instance.controller.flightMap.controller.setPath(test);
+                JSONArray path = jsonObject.getJSONArray("path");
+                GcsMain.instance.controller.flightMap.controller.setPath(path);
             }
             @Override
             public void connectionLost(Throwable throwable) {}
