@@ -20,6 +20,6 @@ public class Service1Controller implements Initializable {
 
     public void initWebView() {
         webEngine = service1WebView.getEngine();
-        webEngine.load("http://localhost:8080/FinalWebProject/droneManagement");
+        webEngine.load("http://localhost:8080/FinalWebProject/delivery");
     }
 }
