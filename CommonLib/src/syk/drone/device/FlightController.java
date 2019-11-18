@@ -467,6 +467,9 @@ public class FlightController {
                                 if (device.no == param1) {
                                     if (param2 == 0) {
                                         device.off();
+                                        JSONObject jsonMessage = new JSONObject();
+                                        jsonMessage.put("msgid", "arrived");
+                                        mqttSendToGcs(jsonMessage);
                                     } else {
                                         device.on();
                                     }

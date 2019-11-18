@@ -1,6 +1,9 @@
 package kosa.team3.gcs.web;
 
+import javafx.application.Platform;
+import javafx.stage.Stage;
 import kosa.team3.gcs.main.GcsMain;
+import kosa.team3.gcs.service.service1.Service1Controller;
 import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
 import org.eclipse.paho.client.mqttv3.MqttCallback;
 import org.eclipse.paho.client.mqttv3.MqttClient;
@@ -9,6 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import syk.gcs.dialog.AlertDialog;
 import syk.gcs.mapview.FlightMapController;
 
 public class WebNetwork {
@@ -18,6 +22,8 @@ public class WebNetwork {
     private String pubTopic;
     private String subTopic;
     private JSONArray jsonArray;
+
+    private Service1Controller service1Controller;
     //Constructor
 
     //method
@@ -54,8 +60,18 @@ public class WebNetwork {
                 byte[] bytes = mqttMessage.getPayload();
                 String json = new String(bytes);
                 JSONObject jsonObject = new JSONObject(json);
-                JSONArray path = jsonObject.getJSONArray("path");
-                GcsMain.instance.controller.flightMap.controller.setPath(path);
+                String msgid = jsonObject.getString("msgid");
+                if(msgid.equals("send_path")) {
+                    JSONArray path = jsonObject.getJSONArray("path");
+                    GcsMain.instance.controller.flightMap.controller.setPath(path);
+                    GcsMain.instance.controller.flightMap.controller.showInfoLabel("경로 불러오기 성공");
+                } else if(msgid.equals("requestDrone")) {
+                    logger.info("실행");
+                    alertMessage(msgid);
+                } else if(msgid.equals("requestDelivery")) {
+                    alertMessage(msgid);
+                }
+
             }
             @Override
             public void connectionLost(Throwable throwable) {}
@@ -87,6 +103,19 @@ public class WebNetwork {
 
     public JSONArray getJsonArray() {
         return jsonArray;
+    }
+
+    public void alertMessage(String msgid) {
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                if(msgid.equals("requestDrone")) {
+                    AlertDialog.showOkButton("알림", "드론 요청이 들어왔습니다.");
+                } else if(msgid.equals("requestDelivery")) {
+                    AlertDialog.showOkButton("알림", "배송 요청이 들어왔습니다.");
+                }
+            }
+        });
     }
 
 }

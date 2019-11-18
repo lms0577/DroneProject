@@ -7,10 +7,12 @@ package kosa.team3.drone.main;
 import kosa.team3.drone.device.Electromagnet;
 import kosa.team3.drone.network.NetworkConfig;
 import syk.drone.device.Camera;
+import syk.drone.device.Device;
 import syk.drone.device.FlightController;
 
 
 public class RealMain {
+
     public static void main(String[] args) {
         NetworkConfig networkConfig = new NetworkConfig();
 
@@ -44,5 +46,18 @@ public class RealMain {
                 networkConfig.droneTopic +"/electromagnet/pub",
                 networkConfig.droneTopic+"/electromagnet/sub"
         );
+
+        flightController.addDevice(new Device(1) {
+            @Override
+            public void off() {
+                electromagnet.mqttSendToGcs();
+
+            }
+
+            @Override
+            public void on() {
+
+            }
+        });
     }
 }

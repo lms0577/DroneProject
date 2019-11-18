@@ -1,5 +1,6 @@
 package syk.gcs.network;
 
+import javafx.application.Platform;
 import syk.common.MavJsonListener;
 import syk.common.MavJsonMessage;
 import org.eclipse.paho.client.mqttv3.*;
@@ -7,6 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import syk.gcs.dialog.AlertDialog;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -104,6 +106,17 @@ public class FlightController {
                 byte[] payload = message.getPayload();
                 String json = new String(payload);
                 JSONObject jsonObject = new JSONObject(json);
+                //------커스터마이징 부분------------------------------------
+                String msgid = jsonObject.getString("msgid");
+                if(msgid.equals("arrived")) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            AlertDialog.showOkButton("알림", "드론이 목적지에 도착했습니다.");
+                        }
+                    });
+                }
+                //--------------------------------------------------------
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {

@@ -939,7 +939,7 @@ public class FlightMapController implements Initializable {
             jsproxy.call("fenceMapSync", strFencePoints);
         });
 	}
-    //--------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------- 여기부터 커스터마이징
     public void setPath(JSONArray jsonArray) {
         missionItems = new ArrayList<>();
         for(int i=0; i<jsonArray.length(); i++) {
@@ -964,5 +964,4 @@ public class FlightMapController implements Initializable {
             missionMapSync();
         });
     }
-
 }

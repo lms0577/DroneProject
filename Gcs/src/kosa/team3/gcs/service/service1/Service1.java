@@ -11,7 +11,6 @@ import kosa.team3.gcs.main.GcsMain;
 public class Service1 {
     //Field
     private Stage dialog;
-
     //Constructor
     public Service1() {
         try{
@@ -35,5 +34,4 @@ public class Service1 {
     public void show() {
         dialog.show();
     }
-
 }
