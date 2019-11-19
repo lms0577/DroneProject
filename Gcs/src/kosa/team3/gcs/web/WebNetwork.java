@@ -61,7 +61,7 @@ public class WebNetwork {
                 String json = new String(bytes);
                 JSONObject jsonObject = new JSONObject(json);
                 String msgid = jsonObject.getString("msgid");
-                if(msgid.equals("send_path")) {
+                if(msgid.equals("path")) {
                     JSONArray path = jsonObject.getJSONArray("path");
                     GcsMain.instance.controller.flightMap.controller.setPath(path);
                     GcsMain.instance.controller.flightMap.controller.showInfoLabel("경로 불러오기 성공");
@@ -69,6 +69,8 @@ public class WebNetwork {
                     logger.info("실행");
                     alertMessage(msgid);
                 } else if(msgid.equals("requestDelivery")) {
+                    alertMessage(msgid);
+                } else if(msgid.equals("attachFinish")) {
                     alertMessage(msgid);
                 }
 
@@ -113,6 +115,8 @@ public class WebNetwork {
                     AlertDialog.showOkButton("알림", "드론 요청이 들어왔습니다.");
                 } else if(msgid.equals("requestDelivery")) {
                     AlertDialog.showOkButton("알림", "배송 요청이 들어왔습니다.");
+                } else if(msgid.equals("attachFinish")) {
+                    AlertDialog.showOkButton("알림", "우편 박스 부착을 완료하였습니다.");
                 }
             }
         });

@@ -199,8 +199,8 @@
             <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="btnSavePath" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="경로 저장" />
-                  <Button fx:id="btnService1" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="서비스1" />
-				  <Button fx:id="btnService2" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="서비스2" />
+                  <Button fx:id="btnService1" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="요청 현황" />
+				  <Button fx:id="btnService2" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="전자석" />
 				  <Button fx:id="btnService3" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="서비스3" />
                </children>
                <HBox.margin>
