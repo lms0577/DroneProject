@@ -72,6 +72,8 @@ public class WebNetwork {
                     alertMessage(msgid);
                 } else if(msgid.equals("attachFinish")) {
                     alertMessage(msgid);
+                } else if(msgid.equals("requestCancel")) {
+                    alertMessage(msgid);
                 }
 
             }
@@ -117,6 +119,8 @@ public class WebNetwork {
                     AlertDialog.showOkButton("알림", "배송 요청이 들어왔습니다.");
                 } else if(msgid.equals("attachFinish")) {
                     AlertDialog.showOkButton("알림", "우편 박스 부착을 완료하였습니다.");
+                } else if(msgid.equals("requestCancel")) {
+                    AlertDialog.showOkButton("알림", "드론 요청이 취소되었습니다.");
                 }
             }
         });

@@ -44,7 +44,7 @@ public class SavePathController implements Initializable {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("vid", vid);
                 jsonObject.put("path", jsonArray);
-                if(vpath.equals("마을 경로")) {
+                if(vpath.equals("이동 경로")) {
                     vpathid = "sendPath";
                     jsonObject.put("vpathid", vpathid);
                 } else {
@@ -61,7 +61,7 @@ public class SavePathController implements Initializable {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("vid", vid);
                 jsonObject.put("path", jsonArray);
-                if(vpath.equals("마을 경로")) {
+                if(vpath.equals("이동 경로")) {
                     vpathid = "sendPath";
                     jsonObject.put("vpathid", vpathid);
                 } else {
@@ -78,7 +78,7 @@ public class SavePathController implements Initializable {
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("vid", vid);
                 jsonObject.put("path", jsonArray);
-                if(vpath.equals("마을 경로")) {
+                if(vpath.equals("이동 경로")) {
                     vpathid = "sendPath";
                     jsonObject.put("vpathid", vpathid);
                 } else {

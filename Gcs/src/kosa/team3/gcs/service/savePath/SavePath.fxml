@@ -50,10 +50,10 @@
                     </FXCollections>
                 </items>
             </ChoiceBox>
-            <ChoiceBox fx:id="choiceBox2" prefWidth="150.0" value="마을 경로">
+            <ChoiceBox fx:id="choiceBox2" prefWidth="150.0" value="이동 경로">
                <items>
                   <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="마을 경로" />
+                     <String fx:value="이동 경로" />
                      <String fx:value="복귀 경로" />
                   </FXCollections>
                </items>
