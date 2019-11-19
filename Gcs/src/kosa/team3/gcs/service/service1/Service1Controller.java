@@ -25,7 +25,7 @@ public class Service1Controller implements Initializable {
             JSObject window = (JSObject) webEngine.executeScript("window");
             window.setMember("java", this); //얘가 중요! webview 안에서 java. 메소드를 실행하면 this는 Service1Controller 객체 사용
         }));
-        webEngine.load("http://localhost:8080/FinalWebProject/delivery");
+        webEngine.load("http://106.253.56.124:8083/FinalWebProject/delivery");
     }
 
     public void windowClose() {
