@@ -468,10 +468,13 @@ public class FlightController {
                                     if (param2 == 0) {
                                         device.off();
                                         JSONObject jsonMessage = new JSONObject();
-                                        jsonMessage.put("msgid", "arrived");
+                                        jsonMessage.put("msgid", "arrivedVillage");
                                         mqttSendToGcs(jsonMessage);
                                     } else {
                                         device.on();
+                                        JSONObject jsonMessage = new JSONObject();
+                                        jsonMessage.put("msgid", "arrivedOffice");
+                                        mqttSendToGcs(jsonMessage);
                                     }
                                 }
                             }

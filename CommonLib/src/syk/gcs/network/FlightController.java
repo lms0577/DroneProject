@@ -108,11 +108,18 @@ public class FlightController {
                 JSONObject jsonObject = new JSONObject(json);
                 //------커스터마이징 부분------------------------------------
                 String msgid = jsonObject.getString("msgid");
-                if(msgid.equals("arrived")) {
+                if(msgid.equals("arrivedVillage")) {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
-                            AlertDialog.showOkButton("알림", "드론이 목적지에 도착했습니다.");
+                            AlertDialog.showOkButton("알림", "드론이 마을에 도착했습니다.");
+                        }
+                    });
+                } else if(msgid.equals("arrivedOffice")) {
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            AlertDialog.showOkButton("알림", "드론이 우체국에 도착했습니다.");
                         }
                     });
                 }

@@ -62,17 +62,21 @@ public class WebNetwork {
                 JSONObject jsonObject = new JSONObject(json);
                 String msgid = jsonObject.getString("msgid");
                 if(msgid.equals("path")) {
+                    logger.info("path 실행");
                     JSONArray path = jsonObject.getJSONArray("path");
                     GcsMain.instance.controller.flightMap.controller.setPath(path);
                     GcsMain.instance.controller.flightMap.controller.showInfoLabel("경로 불러오기 성공");
                 } else if(msgid.equals("requestDrone")) {
-                    logger.info("실행");
+                    logger.info("requestDrone 실행");
                     alertMessage(msgid);
                 } else if(msgid.equals("requestDelivery")) {
+                    logger.info("requestDelivery 실행");
                     alertMessage(msgid);
                 } else if(msgid.equals("attachFinish")) {
+                    logger.info("attachFinish 실행");
                     alertMessage(msgid);
                 } else if(msgid.equals("requestCancel")) {
+                    logger.info("requestCancel 실행");
                     alertMessage(msgid);
                 }
 
