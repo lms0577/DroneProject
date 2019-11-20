@@ -14,6 +14,7 @@ public class Electromagnet {
     private MqttClient mqttClient;
     private String pubTopic;
     private String subTopic;
+    private String status;
     //Constructor
 
     //method
@@ -42,15 +43,15 @@ public class Electromagnet {
         }
     }
 
-    public void mqttReceiveFromElectromagnetPool() {
+    private void mqttReceiveFromElectromagnetPool() {
         mqttClient.setCallback(new MqttCallback() {
             @Override
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
                 byte[] arr = mqttMessage.getPayload();
                 String json = new String(arr);
                 JSONObject jsonObject = new JSONObject(json);
-                String status = jsonObject.getString("status");
-                logger.info(status);
+                status = jsonObject.getString("status");
+                //logger.info(status);
             }
             @Override
             public void connectionLost(Throwable throwable) {}
@@ -76,6 +77,10 @@ public class Electromagnet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public String getStatus() {
+        return status;
     }
 
 

@@ -52,7 +52,7 @@ public class WebNetwork {
         }
     }
 
-    public void mqttReceiveFromWebPool() {
+    private void mqttReceiveFromWebPool() {
         mqttClient.setCallback(new MqttCallback() {
             @Override
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
@@ -113,7 +113,7 @@ public class WebNetwork {
         return jsonArray;
     }
 
-    public void alertMessage(String msgid) {
+    private void alertMessage(String msgid) {
         Platform.runLater(new Runnable() {
             @Override
             public void run() {
@@ -122,7 +122,7 @@ public class WebNetwork {
                 } else if(msgid.equals("requestDelivery")) {
                     AlertDialog.showOkButton("알림", "배송 요청이 들어왔습니다.");
                 } else if(msgid.equals("attachFinish")) {
-                    AlertDialog.showOkButton("알림", "우편 박스 부착을 완료하였습니다.");
+                    AlertDialog.showOkButton("알림", "우편 박스 부착 또는 수령을 완료하였습니다.");
                 } else if(msgid.equals("requestCancel")) {
                     AlertDialog.showOkButton("알림", "드론 요청이 취소되었습니다.");
                 }

@@ -50,7 +50,6 @@ public class RealMain {
         flightController.addDevice(new Device(1) {
             @Override
             public void off() {
-                electromagnet.mqttSendToGcs();
 
             }
 

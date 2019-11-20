@@ -112,6 +112,7 @@ public class FlightController {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            logger.info("arrivedVillage 실행");
                             AlertDialog.showOkButton("알림", "드론이 마을에 도착했습니다.");
                         }
                     });
@@ -119,6 +120,7 @@ public class FlightController {
                     Platform.runLater(new Runnable() {
                         @Override
                         public void run() {
+                            logger.info("arrivedOffice 실행");
                             AlertDialog.showOkButton("알림", "드론이 우체국에 도착했습니다.");
                         }
                     });

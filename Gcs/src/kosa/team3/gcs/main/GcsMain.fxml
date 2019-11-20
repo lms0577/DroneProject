@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -191,12 +192,35 @@
    <top>
       <HBox alignment="CENTER_LEFT" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" text="Ground Control Station">
-               <font>
-                  <Font name="Times New Roman Bold Italic" size="34.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+            <HBox alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="50.0" fitWidth="344.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@image1.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <ImageView fitHeight="40.0" fitWidth="344.0" pickOnBounds="true" preserveRatio="true" smooth="false">
+                     <image>
+                        <Image url="@image2.png" />
+                     </image>
+                  </ImageView>
+                  <Label prefHeight="21.0" prefWidth="233.0" text="드론 우체국">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Aharoni Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="1000.0" spacing="5.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="btnSavePath" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="경로 저장" />
                   <Button fx:id="btnService1" maxHeight="40.0" maxWidth="1.7976931348623157E308" minHeight="40.0" mnemonicParsing="false" text="요청 현황" />

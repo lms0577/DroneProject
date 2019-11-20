@@ -39,7 +39,7 @@ public class Electromagnet {
         mqttSendToGcs();
     }
 
-    public void mqttReceiveFromGcs() {
+    private void mqttReceiveFromGcs() {
         mqttClient.setCallback(new MqttCallback() {
             @Override
             public void messageArrived(String s, MqttMessage mqttMessage) throws Exception {
@@ -96,13 +96,14 @@ public class Electromagnet {
                         jsonObject.put("status", status);
                         String json = jsonObject.toString();
                         mqttClient.publish(pubTopic, json.getBytes(), 0, false);
-                        logger.info("Electromagnet MQTT publish: " + pubTopic);
+                        //logger.info("Electromagnet MQTT publish: " + pubTopic);
                         Thread.sleep(1000);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
             }
+
         };
         thread.start();
 
