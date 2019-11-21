@@ -38,12 +38,12 @@
 }
 
 .button {
-    -fx-text-fill:white;
+    -fx-text-fill:black;
     -fx-font-weight: bold;
     -fx-background-color:
-            linear-gradient(#f35000 0%, #641e00 25%, #641e00 75%, #641e00 100%),
-            linear-gradient(#f35000, #961400),
-            linear-gradient(#f35000 0%, #c85000 20%, #c85000 80%, #c85000 100%);
+            linear-gradient(#f30000 0%, #640000 25%, #640000 75%, #640000 100%),
+            linear-gradient(#f30000, #960000),
+            linear-gradient(#ff9600 0%, #ff9600 20%, #ff9600 80%, #ff9600 100%);
     /*linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
     linear-gradient(#020b02, #3a3a3a),
     linear-gradient(#9d9e9d 0%, #6b6a6b 20%, #343534 80%, #242424 100%);*/
@@ -55,7 +55,7 @@
     -fx-text-fill:white;
     -fx-font-weight: bold;
 
-    -fx-background-color: linear-gradient(#f35000 0%, #641e00 25%, #c85000 75%, #f35000 100%);
+    -fx-background-color: linear-gradient(#ff9600 0%, #641e00 25%, #c89600 75%, #f39600 100%);
             /*linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%);*/
     -fx-background-insets: 0;
     -fx-background-radius: 9;
